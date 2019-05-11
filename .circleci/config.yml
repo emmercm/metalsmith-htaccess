@@ -1,0 +1,46 @@
+version: 2.1
+
+executors:
+  node:
+    docker:
+      # Current LTS version
+      - image: circleci/node:10.15.3
+
+jobs:
+  # https://circleci.com/blog/publishing-npm-packages-using-circleci-2-0/
+  test:
+    executor: node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: npm install
+      - run:
+          name: Run tests
+          command: npm test
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+  # https://circleci.com/docs/2.0/deployment-integrations/#npm
+  publish:
+    executor: node
+    steps:
+      - checkout
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run: npm publish
+
+workflows:
+  version: 2.1
+  test-publish:
+    jobs:
+      - test
+      - publish:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
