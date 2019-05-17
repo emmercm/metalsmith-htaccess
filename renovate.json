@@ -4,6 +4,7 @@
     "schedule:earlyMondays"
   ],
   "timezone": "America/Detroit",
+  "assignees": ["@emmercm"],
   "vulnerabilityAlerts": {
     "labels": ["security"]
   },
