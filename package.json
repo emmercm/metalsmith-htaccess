@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-htaccess",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Metalsmith plugin to create an htaccess configuration file. ",
   "main": "lib/index.js",
   "scripts": {
@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/emmercm/metalsmith-htaccess#readme",
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.17.2"
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.17.2"
   },
   "dependencies": {
     "deepmerge": "^3.2.0"
