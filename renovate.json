@@ -1,12 +1,14 @@
 {
   "extends": [
     "config:base",
-    "schedule:earlyMondays"
+    "schedule:monthly"
   ],
+  "groupName": "All",
   "timezone": "America/Detroit",
   "assignees": ["@emmercm"],
   "vulnerabilityAlerts": {
-    "labels": ["security"]
+    "labels": ["security"],
+    "schedule": "at any time"
   },
   "bumpVersion": "patch"
 }
