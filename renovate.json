@@ -10,5 +10,20 @@
     "labels": ["security"],
     "schedule": "at any time"
   },
+  "packageRules": [
+    {
+      "packageNames": [
+        "assert-dir-equal",
+        "jest",
+        "jest-junit",
+        "metalsmith"
+      ],
+      "groupName": "Tests"
+    },
+    {
+      "packagePatterns": ["^eslint"],
+      "groupName": "ESLint"
+    }
+  ],
   "bumpVersion": "patch"
 }

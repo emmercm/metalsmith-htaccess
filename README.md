@@ -5,6 +5,7 @@
 
 [![](https://badgen.net/badge/emmercm/metalsmith-htaccess/purple?icon=github)](https://github.com/emmercm/metalsmith-htaccess)
 [![](https://badgen.net/circleci/github/emmercm/metalsmith-htaccess/master?icon=circleci)](https://github.com/emmercm/metalsmith-htaccess/blob/master/.circleci/config.yml)
+[![](https://codecov.io/gh/emmercm/metalsmith-htaccess/branch/master/graph/badge.svg)](https://codecov.io/gh/emmercm/metalsmith-htaccess)
 [![](https://badgen.net/github/license/emmercm/metalsmith-htaccess?color=grey)](https://github.com/emmercm/metalsmith-htaccess/blob/master/LICENSE)
 
 A Metalsmith plugin to create an htaccess configuration file.
@@ -18,7 +19,8 @@ npm install metalsmith-htaccess
 ## JavaScript Usage
 
 ```javascript
-const htaccess = require('metalsmith-htaccess');
+const Metalsmith = require('metalsmith');
+const htaccess   = require('metalsmith-htaccess');
 
 Metalsmith(__dirname)
     .use(htaccess({

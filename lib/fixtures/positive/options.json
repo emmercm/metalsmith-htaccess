@@ -1,0 +1,74 @@
+{
+  "core": {
+    "options": {
+      "followSymlinks": true,
+      "indexes": true,
+      "multiViews": true
+    },
+    "defaultCharset": "utf-8",
+    "serverSignature": true,
+    "errorDocuments": {
+      "404": "/404.html"
+    }
+  },
+
+  "deflate": {
+    "mimeTypes": [
+      "image/jpeg"
+    ]
+  },
+
+  "dir": {
+    "index": "index.html"
+  },
+
+  "environment": {
+    "serverAdminEmail": "dummy@gmail.com",
+    "timezone": "America/Detroit"
+  },
+
+  "expires": {
+    "default": "access plus 1 month"
+  },
+
+  "gzip": {
+    "canNegotiate": true,
+    "dechunk": true,
+    "include": [
+      "mime image/jpeg"
+    ],
+    "exclude": [
+      "mime image/png"
+    ]
+  },
+
+  "headers": {
+    "etag": true
+  },
+
+  "mime": {
+    "defaultLanguage": "en",
+    "languages": {
+      "en": ".en"
+    },
+    "charsets": {
+      "utf-8": ".utf8"
+    },
+    "types": {
+      "image/jpeg": ".jpg"
+    }
+  },
+
+  "rewrite": {
+    "options": "Inherit",
+    "allowedMethods": [
+      "GET"
+    ],
+    "404": "/404.html",
+    "httpsRedirect": true
+  },
+
+  "spelling": {
+    "check": true
+  }
+}
