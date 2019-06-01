@@ -38,8 +38,20 @@ jobs:
     executor: node
     steps:
       - checkout
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run: npm publish
+      - run:
+          name: Publish to npm
+          command: |
+            VER_LOCAL=$(jq --raw-output '.version' package.json)
+            VER_LOCAL_N=$(echo ${VER_LOCAL} | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }')
+            VER_REMOTE=$(npm view "$(jq --raw-output '.name' package.json)" version)
+            VER_REMOTE_N=$(echo ${VER_REMOTE} | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }')
+            if [[ "${VER_LOCAL_N}" -gt "${VER_REMOTE_N}" ]]; then
+              echo "Publishing ${VER_REMOTE} --> ${VER_LOCAL}"
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+              npm publish
+            else
+              echo "Already published ${VER_REMOTE}"
+            fi
 
 workflows:
   version: 2.1
