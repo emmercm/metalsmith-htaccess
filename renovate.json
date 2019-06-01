@@ -7,23 +7,13 @@
   "timezone": "America/Detroit",
   "assignees": ["@emmercm"],
   "vulnerabilityAlerts": {
-    "labels": ["security"],
     "schedule": "at any time"
   },
-  "packageRules": [
-    {
-      "packageNames": [
-        "assert-dir-equal",
-        "jest",
-        "jest-junit",
-        "metalsmith"
-      ],
-      "groupName": "Tests"
-    },
-    {
-      "packagePatterns": ["^eslint"],
-      "groupName": "ESLint"
-    }
-  ],
+  "packageRules": [{
+    "depTypeList": ["devDependencies"],
+    "groupName": "Dev Dependencies",
+    "assignees": [],
+    "automerge": true
+  }],
   "bumpVersion": "patch"
 }
