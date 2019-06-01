@@ -4,7 +4,7 @@ executors:
   node:
     docker:
       # Current LTS version
-      - image: circleci/node:10.15.3
+      - image: circleci/node:10.16.0
 
 jobs:
   # https://circleci.com/blog/publishing-npm-packages-using-circleci-2-0/
