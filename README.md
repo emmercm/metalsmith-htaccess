@@ -1,11 +1,12 @@
 # metalsmith-htaccess
 
 [![](https://badgen.net/npm/v/metalsmith-htaccess?icon=npm)](https://www.npmjs.com/package/metalsmith-htaccess)
-[![](https://badgen.net/npm/dw/metalsmith-htaccess?icon=npm)](https://www.npmjs.com/package/metalsmith-htaccess)
+[![Known Vulnerabilities](https://snyk.io/test/npm/metalsmith-htaccess/badge.svg)](https://snyk.io/test/npm/metalsmith-htaccess)
+[![](https://badgen.net/npm/dw/metalsmith-htaccess)](https://www.npmjs.com/package/metalsmith-htaccess)
 
 [![](https://badgen.net/badge/emmercm/metalsmith-htaccess/purple?icon=github)](https://github.com/emmercm/metalsmith-htaccess)
 [![](https://badgen.net/circleci/github/emmercm/metalsmith-htaccess/master?icon=circleci)](https://github.com/emmercm/metalsmith-htaccess/blob/master/.circleci/config.yml)
-[![](https://codecov.io/gh/emmercm/metalsmith-htaccess/branch/master/graph/badge.svg)](https://codecov.io/gh/emmercm/metalsmith-htaccess)
+[![](https://badgen.net/codecov/c/github/emmercm/metalsmith-htaccess/master?icon=codecov)](https://codecov.io/gh/emmercm/metalsmith-htaccess)
 [![](https://badgen.net/github/license/emmercm/metalsmith-htaccess?color=grey)](https://github.com/emmercm/metalsmith-htaccess/blob/master/LICENSE)
 
 A Metalsmith plugin to create an htaccess configuration file.
