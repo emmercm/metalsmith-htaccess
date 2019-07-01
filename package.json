@@ -1,8 +1,21 @@
 {
   "name": "metalsmith-htaccess",
   "version": "0.1.2",
-  "description": "A Metalsmith plugin to create an htaccess configuration file. ",
-  "main": "lib/index.js",
+  "description": "A Metalsmith plugin to create an htaccess configuration file.",
+  "homepage": "https://github.com/emmercm/metalsmith-htaccess#readme",
+  "bugs": {
+    "url": "https://github.com/emmercm/metalsmith-htaccess/issues"
+  },
+  "license": "GPL-3.0-or-later",
+  "author": "Christian Emmer",
+  "files": [
+    "/lib"
+  ],
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmercm/metalsmith-htaccess.git"
+  },
   "scripts": {
     "lint": "eslint . --fix || true",
     "test": "jest --verbose --coverage && eslint .",
@@ -10,16 +23,9 @@
     "test:watch": "jest --verbose --watch",
     "test:junit": "JEST_JUNIT_OUTPUT=reports/junit/results.xml jest --ci --runInBand --reporters=default --reporters=jest-junit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/emmercm/metalsmith-htaccess.git"
+  "dependencies": {
+    "deepmerge": "^3.2.0"
   },
-  "author": "Christian Emmer",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/emmercm/metalsmith-htaccess/issues"
-  },
-  "homepage": "https://github.com/emmercm/metalsmith-htaccess#readme",
   "devDependencies": {
     "assert-dir-equal": "1.1.0",
     "eslint": "6.0.1",
@@ -28,8 +34,5 @@
     "jest": "24.8.0",
     "jest-junit": "6.4.0",
     "metalsmith": "2.3.0"
-  },
-  "dependencies": {
-    "deepmerge": "^3.2.0"
   }
 }
