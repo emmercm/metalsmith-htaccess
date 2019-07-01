@@ -3,17 +3,23 @@
     "config:base",
     "schedule:monthly"
   ],
-  "groupName": "All",
   "timezone": "America/Detroit",
-  "assignees": ["@emmercm"],
   "vulnerabilityAlerts": {
     "schedule": "at any time"
   },
-  "packageRules": [{
-    "depTypeList": ["devDependencies"],
-    "groupName": "Dev Dependencies",
-    "assignees": [],
-    "automerge": true
-  }],
-  "bumpVersion": "patch"
+  "assignees": ["@emmercm"],
+  "automerge": true,
+  "separateMajorMinor": false,
+  "separateMinorPatch": false,
+  "packageRules": [
+    {
+      "depTypeList": ["dependencies"],
+      "groupName": "Dependencies",
+      "bumpVersion": "patch"
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "groupName": "Dev Dependencies"
+    }
+  ]
 }
