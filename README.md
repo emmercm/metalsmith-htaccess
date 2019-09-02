@@ -14,7 +14,7 @@ A Metalsmith plugin to create an htaccess configuration file.
 ## Installation
 
 ```bash
-npm install metalsmith-htaccess
+npm install --save metalsmith-htaccess
 ```
 
 ## JavaScript Usage
