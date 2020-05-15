@@ -1,13 +1,23 @@
 {
   "extends": "airbnb-base",
   "rules": {
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "strict": ["error", "global"]
+  },
+  "parserOptions": {
+    "sourceType": "script"
   },
   "overrides": [
     {
       "files": ["**/*.test.js"],
       "env": {
         "jest": true
+      }
+    },
+    {
+      "files": ["**/fixtures/**/*.js"],
+      "rules": {
+        "strict": "off"
       }
     }
   ]
