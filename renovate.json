@@ -9,6 +9,7 @@
   },
   "assignees": ["@emmercm"],
   "automerge": true,
+  "rangeStrategy": "bump",
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "packageRules": [
