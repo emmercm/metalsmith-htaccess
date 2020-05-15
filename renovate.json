@@ -21,5 +21,9 @@
       "depTypeList": ["devDependencies"],
       "groupName": "Dev Dependencies"
     }
-  ]
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "assignees": []
+  }
 }
