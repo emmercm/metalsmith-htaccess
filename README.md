@@ -1,13 +1,15 @@
 # metalsmith-htaccess
 
-[![](https://badgen.net/npm/v/metalsmith-htaccess?icon=npm)](https://www.npmjs.com/package/metalsmith-htaccess)
-[![Known Vulnerabilities](https://snyk.io/test/npm/metalsmith-htaccess/badge.svg)](https://snyk.io/test/npm/metalsmith-htaccess)
-[![](https://badgen.net/npm/dw/metalsmith-htaccess)](https://www.npmjs.com/package/metalsmith-htaccess)
+[![npm Version](https://badgen.net/npm/v/metalsmith-htaccess?icon=npm)](https://www.npmjs.com/package/metalsmith-htaccess)
+[![node Version](https://badgen.net/npm/node/metalsmith-htaccess)](https://github.com/emmercm/metalsmith-htaccess/blob/master/package.json)
+[![npm Weekly Downloads](https://badgen.net/npm/dw/metalsmith-htaccess)](https://www.npmjs.com/package/metalsmith-htaccess)
 
-[![](https://badgen.net/badge/emmercm/metalsmith-htaccess/purple?icon=github)](https://github.com/emmercm/metalsmith-htaccess)
-[![](https://badgen.net/circleci/github/emmercm/metalsmith-htaccess/master?icon=circleci)](https://github.com/emmercm/metalsmith-htaccess/blob/master/.circleci/config.yml)
-[![](https://badgen.net/codecov/c/github/emmercm/metalsmith-htaccess/master?icon=codecov)](https://codecov.io/gh/emmercm/metalsmith-htaccess)
-[![](https://badgen.net/github/license/emmercm/metalsmith-htaccess?color=grey)](https://github.com/emmercm/metalsmith-htaccess/blob/master/LICENSE)
+[![Known Vulnerabilities](https://snyk.io/test/npm/metalsmith-htaccess/badge.svg)](https://snyk.io/test/npm/metalsmith-htaccess)
+[![Test Coverage](https://badgen.net/codecov/c/github/emmercm/metalsmith-htaccess/master?icon=codecov)](https://codecov.io/gh/emmercm/metalsmith-htaccess)
+[![Maintainability](https://badgen.net/codeclimate/maintainability/emmercm/metalsmith-htaccess?icon=codeclimate)](https://codeclimate.com/github/emmercm/metalsmith-htaccess/maintainability)
+
+[![GitHub](https://badgen.net/badge/emmercm/metalsmith-htaccess/purple?icon=github)](https://github.com/emmercm/metalsmith-htaccess)
+[![License](https://badgen.net/github/license/emmercm/metalsmith-htaccess?color=grey)](https://github.com/emmercm/metalsmith-htaccess/blob/master/LICENSE)
 
 A Metalsmith plugin to create an htaccess configuration file.
 
@@ -27,63 +29,34 @@ Metalsmith(__dirname)
     .use(htaccess({
         // options here
     }))
+    .build((err) => {
+        if (err) {
+            throw err;
+        }
+    });
 ```
 
 ## Options
 
-### Default Options
-
-```json
-{
-    "dir": {
-        "index": "index.html index.htm index.php index.cgi"
-    },
-    "core": {
-        "options": {
-            "followSymlinks": true,
-            "indexes": false,
-            "multiViews": false
-        },
-        "defaultCharset": "utf-8",
-        "serverSignature": false
-    },
-    "headers": {
-        "etag": false
-    },
-    "gzip": {
-        "canNegotiate": true,
-        "dechunk": true,
-        "include": [
-            "file .(html?|txt|css|js|php|pl)$",
-            "handler ^cgi-script$",
-            "mime ^text/.*",
-            "mime ^application/x-javascript.*"
-        ],
-        "exclude": [
-            "reqheader \"User-agent: Mozilla/4.0[678]\"",
-            "mime ^image/.*",
-            "rspheader ^Content-Encoding:.*gzip.*"
-        ]
-    },
-    "rewrite": {
-        "options": "Inherit"
-    }
-}
-```
-
 ### Core
 
-#### `core.defaultCharset`
+#### `core.defaultCharset` (optional)
 
-`string` - sets `AddDefaultCharset`.
+Type: `string` Default: `utf-8`
 
-#### `core.serverSignature`
+Sets [`AddDefaultCharset`](https://httpd.apache.org/docs/current/mod/core.html#adddefaultcharset).
 
-`boolean` - enable or disable `ServerSignature`.
+#### `core.serverSignature` (optional)
 
-#### `core.errorDocuments`
+Type: `boolean` Default: `false`
 
-`Object` - sets `ErrorDocument`:
+Enables or disables [`ServerSignature`](https://httpd.apache.org/docs/current/mod/core.html#serversignature).
+
+#### `core.errorDocuments` (optional)
+
+Type: `object`
+
+An object of [`ErrorDocument`](https://httpd.apache.org/docs/current/mod/core.html#errordocument)s, example:
 
 ```json
 {
@@ -99,79 +72,109 @@ Metalsmith(__dirname)
 
 ### Core Options
 
-#### `core.options.followSymlinks`
+#### `core.options.followSymlinks` (optional)
 
-`boolean` - enable or disable `FollowSymlinks`.
+Type: `boolean` Default: `true`
 
-#### `core.options.indexes`
+Enables or disables [`FollowSymlinks`](https://httpd.apache.org/docs/current/mod/core.html#options).
 
-`boolean` - enable or disable `Indexes`.
+#### `core.options.indexes` (optional)
 
-#### `core.options.multiViews`
+Type: `boolean` Default: `false`
 
-`boolean` - enable or disable `MultiViews`.
+Enables or disables [`Indexes`](https://httpd.apache.org/docs/current/mod/core.html#options).
+
+#### `core.options.multiViews` (optional)
+
+Type: `boolean` Default: `false`
+
+Enables or disables [`MultiViews`](https://httpd.apache.org/docs/current/mod/core.html#options).
 
 ### Deflate
 
-#### `deflate.mimeTypes`
+#### `deflate.mimeTypes` (optional)
 
-`Array` - list of MIME types to `AddOutputFilterByType DEFLATE`.
+Type: `string[]`
+
+A list of MIME types to [`AddOutputFilterByType DEFLATE`](https://httpd.apache.org/docs/current/mod/mod_deflate.html#enable).
 
 ### Dir
 
-#### `dir.index`
+#### `dir.index` (optional)
 
-`string` - set `DirectoryIndex`.
+Type: `string` Default: `index.html index.htm index.php index.cgi`
+
+Set [`DirectoryIndex`](https://httpd.apache.org/docs/current/mod/mod_dir.html#directoryindex).
 
 ### Environment
 
-#### `environment.serverAdminEmail`
+#### `environment.serverAdminEmail` (optional)
 
-`string` - set `SetEnv SERVER_ADMIN`.
+Type: `string`
 
-#### `environment.timezone`
+Set [`SetEnv SERVER_ADMIN`](https://httpd.apache.org/docs/current/mod/mod_env.html#setenv).
 
-`string` - set `SetEnv TZ`.
+#### `environment.timezone` (optional)
+
+Type: `string`
+
+Set [`SetEnv TZ`](https://httpd.apache.org/docs/current/mod/mod_env.html#setenv).
 
 ### Expires
 
-#### `expires.default`
+#### `expires.default` (optional)
 
-`string` - set `ExpiresDefault`.
+Type: `string`
+
+Set [`ExpiresDefault`](https://httpd.apache.org/docs/current/mod/mod_env.html#setenv).
 
 ### Gzip
 
-#### `gzip.canNegotiate`
+#### `gzip.canNegotiate` (optional)
 
-`boolean` - enable or disable `mod_gzip_can_negotiate`.
+Type: `boolean` Default: `true`
 
-#### `gzip.dechunk`
+Enables or disables `mod_gzip_can_negotiate`.
 
-`boolean` - enable or disable `mod_gzip_dechunk`.
+#### `gzip.dechunk` (optional)
 
-#### `gzip.include`
+Type: `boolean` Default: `true`
 
-`Array` - list of `mod_gzip_item_include`.
+Enables or disables `mod_gzip_dechunk`.
 
-#### `gzip.exclude`
+#### `gzip.include` (optional)
 
-`Array` - list of `mod_gzip_item_exclude`.
+Type: `string[]` Default: `["file .(html?|txt|css|js|php|pl)$", "handler ^cgi-script$", "mime ^text/.*", "mime ^application/x-javascript.*"]`
+
+A list of `mod_gzip_item_include`.
+
+#### `gzip.exclude` (optional)
+
+Type: `string[]` Default: `["reqheader \"User-agent: Mozilla/4.0[678]\"", "mime ^image/.*", "rspheader ^Content-Encoding:.*gzip.*"]`
+
+A list of `mod_gzip_item_exclude`.
 
 ### Headers
 
-#### `headers.etag`
+#### `headers.etag` (optional)
 
-`boolean` - enable or disable ETag header.
+Type: `boolean` Default: `false`
+
+Enables or disables [ETag header](https://httpd.apache.org/docs/current/mod/core.html#fileetag).
 
 ### MIME
 
-#### `mime.defaultLanguage`
+#### `mime.defaultLanguage` (optional)
 
-`string` - set `DefaultLanguage`.
+Type: `string`
 
-#### `mime.languages`
+Sets [`DefaultLanguage`](https://httpd.apache.org/docs/current/mod/mod_mime.html#defaultlanguage).
 
-`Object` - set `AddLanguage`:
+#### `mime.languages` (optional)
+
+Type: `object`
+
+An object of [`AddLanguage`](https://httpd.apache.org/docs/current/mod/mod_mime.html#addlanguage)s, example:
 
 ```json
 {
@@ -185,9 +188,11 @@ Metalsmith(__dirname)
 }
 ```
 
-#### `mime.charsets`
+#### `mime.charsets` (optional)
 
-`Object` - set `AddCharset`:
+Type: `object`
+
+An object of [`AddCharset`](https://httpd.apache.org/docs/current/mod/mod_mime.html#addcharset)s, example:
 
 ```json
 {
@@ -201,9 +206,11 @@ Metalsmith(__dirname)
 }
 ```
 
-#### `mime.types`
+#### `mime.types` (optional)
 
-`Object` - set `AddType`:
+Type: `object`
+
+An object of [`AddType`](https://httpd.apache.org/docs/current/mod/mod_mime.html#addtype)s, example:
 
 ```json
 {
@@ -218,27 +225,37 @@ Metalsmith(__dirname)
 
 ### Rewrite
 
-#### `rewrite.404`
+#### `rewrite.404` (optional)
 
-`string` - set 404 redirect page.
+Type: `string`
 
-#### `rewrite.options`
+Sets the [404 redirect page](https://httpd.apache.org/docs/current/mod/mod_rewrite.html).
 
-`string` - set `RewriteOptions`.
+#### `rewrite.options` (optional)
 
-#### `rewrite.allowedMethods`
+Type: `string` Default: `Inherit`
 
-`Array` - list of allowed HTTP methods.
+Sets [`RewriteOptions`](https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriteoptions).
 
-#### `rewrite.httpsRedirect`
+#### `rewrite.allowedMethods` (optional)
 
-`boolean` - enable HTTPS redirection.
+Type: `string[]`
+
+A list of [allowed HTTP methods](https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriteoptions).
+
+#### `rewrite.httpsRedirect` (optional)
+
+Type: `boolean`
+
+Enable [HTTPS redirection](https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriteoptions).
 
 ### Spelling
 
-#### `spelling.check`
+#### `spelling.check` (optional)
 
-`boolean` - enable or disable `CheckSpelling`.
+Type: `boolean`
+
+Enables or disables [`CheckSpelling`](https://httpd.apache.org/docs/current/mod/mod_speling.html#checkspelling).
 
 ## Changelog
 

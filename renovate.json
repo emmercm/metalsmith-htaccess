@@ -9,6 +9,7 @@
   },
   "assignees": ["@emmercm"],
   "automerge": true,
+  "rangeStrategy": "bump",
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "packageRules": [
@@ -21,5 +22,9 @@
       "depTypeList": ["devDependencies"],
       "groupName": "Dev Dependencies"
     }
-  ]
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "assignees": []
+  }
 }
