@@ -28,7 +28,10 @@
   },
 
   "expires": {
-    "default": "access plus 1 month"
+    "default": "access plus 1 month",
+    "types": {
+      "text/html":  "access plus 600 seconds"
+    }
   },
 
   "gzip": {

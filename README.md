@@ -94,7 +94,7 @@ Enables or disables [`MultiViews`](https://httpd.apache.org/docs/current/mod/cor
 
 #### `deflate.mimeTypes` (optional)
 
-Type: `string[]`
+Type: `string[]` Default: `["image/svg+xml", "application/javascript", "application/rss+xml", "application/vnd.ms-fontobject", "application/x-font", "application/x-font-opentype", "application/x-font-otf", "application/x-font-truetype", "application/x-font-ttf", "application/x-javascript", "application/xhtml+xml", "application/xml", "font/opentype", "font/otf", "font/ttf", "image/x-icon", "text/css", "text/html", "text/javascript", "text/plain", "text/xml"]`
 
 A list of MIME types to [`AddOutputFilterByType DEFLATE`](https://httpd.apache.org/docs/current/mod/mod_deflate.html#enable).
 
@@ -124,33 +124,56 @@ Set [`SetEnv TZ`](https://httpd.apache.org/docs/current/mod/mod_env.html#setenv)
 
 #### `expires.default` (optional)
 
-Type: `string`
+Type: `string` Default: `access plus 2 days`
 
-Set [`ExpiresDefault`](https://httpd.apache.org/docs/current/mod/mod_env.html#setenv).
+Set [`ExpiresDefault`](https://httpd.apache.org/docs/current/mod/mod_expires.html#expiresdefault).
+
+#### `expires.types` (optional)
+
+Type: `object` Default:
+
+```json
+{
+    "image/jpg": "access plus 1 month",
+    "image/svg+xml": "access 1 month",
+    "image/gif": "access plus 1 month",
+    "image/jpeg": "access plus 1 month",
+    "image/png": "access plus 1 month",
+    "text/css": "access plus 1 month",
+    "text/javascript": "access plus 1 month",
+    "application/javascript": "access plus 1 month",
+    "application/x-shockwave-flash": "access plus 1 month",
+    "image/ico": "access plus 1 month",
+    "image/x-icon": "access plus 1 month",
+    "text/html": "access plus 600 seconds"
+}
+```
+
+Set [`ExpiresByType`](https://httpd.apache.org/docs/current/mod/mod_expires.html#expiresbytype).
 
 ### Gzip
 
 #### `gzip.canNegotiate` (optional)
 
-Type: `boolean` Default: `true`
+Type: `boolean`
 
 Enables or disables `mod_gzip_can_negotiate`.
 
 #### `gzip.dechunk` (optional)
 
-Type: `boolean` Default: `true`
+Type: `boolean`
 
 Enables or disables `mod_gzip_dechunk`.
 
 #### `gzip.include` (optional)
 
-Type: `string[]` Default: `["file .(html?|txt|css|js|php|pl)$", "handler ^cgi-script$", "mime ^text/.*", "mime ^application/x-javascript.*"]`
+Type: `string[]`
 
 A list of `mod_gzip_item_include`.
 
 #### `gzip.exclude` (optional)
 
-Type: `string[]` Default: `["reqheader \"User-agent: Mozilla/4.0[678]\"", "mime ^image/.*", "rspheader ^Content-Encoding:.*gzip.*"]`
+Type: `string[]`
 
 A list of `mod_gzip_item_exclude`.
 
