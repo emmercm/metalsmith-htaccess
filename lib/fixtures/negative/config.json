@@ -7,15 +7,11 @@
     },
     "defaultCharset": "",
     "serverSignature": false,
-    "errorDocuments": {
-      "404": ""
-    }
+    "errorDocuments": {}
   },
 
   "deflate": {
-    "mimeTypes": [
-      ""
-    ]
+    "mimeTypes": []
   },
 
   "dir": {
@@ -28,18 +24,15 @@
   },
 
   "expires": {
-    "default": ""
+    "default": "",
+    "types": []
   },
 
   "gzip": {
     "canNegotiate": false,
     "dechunk": false,
-    "include": [
-      ""
-    ],
-    "exclude": [
-      ""
-    ]
+    "include": [],
+    "exclude": []
   },
 
   "headers": {
@@ -48,22 +41,14 @@
 
   "mime": {
     "defaultLanguage": "",
-    "languages": {
-      "en": ""
-    },
-    "charsets": {
-      "utf-8": ""
-    },
-    "types": {
-      "image/jpeg": ""
-    }
+    "languages": {},
+    "charsets": {},
+    "types": {}
   },
 
   "rewrite": {
     "options": "",
-    "allowedMethods": [
-      ""
-    ],
+    "allowedMethods": [],
     "404": "",
     "httpsRedirect": false
   },

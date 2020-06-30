@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.2.0 / 2020-06-30
+
+- Set default for `expires.default`.
+- Fixed wrong `<IfModule>` for DEFLATE.
+- Changed `deflate.mimeTypes` to output only one line.
+- Set default for `deflate.mimeTypes`.
+- Added support for `ExpiresByType` (`expires.types`), with default.
+- Removed gzip defaults.
+- Removed `[R=302]` from `rewrite.404` `RewriteRule`.
+- Added `[NE]` to `rewrite.httpsRedirect` `RewriteRule`.
+
 ## v0.1.0 / 2019-05-31
 
 - Added Jest tests.
