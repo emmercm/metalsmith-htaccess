@@ -33,11 +33,11 @@
   },
   "devDependencies": {
     "assert-dir-equal": "1.1.0",
-    "eslint": "7.2.0",
-    "eslint-config-airbnb-base": "14.1.0",
-    "eslint-plugin-import": "2.20.2",
-    "jest": "26.0.1",
-    "jest-junit": "10.0.0",
+    "eslint": "7.3.1",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "jest": "26.1.0",
+    "jest-junit": "11.0.1",
     "metalsmith": "2.3.0"
   },
   "engines": {
