@@ -1,7 +1,6 @@
 # metalsmith-htaccess
 
 [![npm Version](https://badgen.net/npm/v/metalsmith-htaccess?icon=npm)](https://www.npmjs.com/package/metalsmith-htaccess)
-[![node Version](https://badgen.net/npm/node/metalsmith-htaccess)](https://github.com/emmercm/metalsmith-htaccess/blob/master/package.json)
 [![npm Weekly Downloads](https://badgen.net/npm/dw/metalsmith-htaccess)](https://www.npmjs.com/package/metalsmith-htaccess)
 
 [![Known Vulnerabilities](https://snyk.io/test/npm/metalsmith-htaccess/badge.svg)](https://snyk.io/test/npm/metalsmith-htaccess)
