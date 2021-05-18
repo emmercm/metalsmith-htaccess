@@ -23,8 +23,5 @@
       "groupName": "Dev Dependencies"
     }
   ],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "assignees": []
-  }
+  "transitiveRemediation": true
 }
