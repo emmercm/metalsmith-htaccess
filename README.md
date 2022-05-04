@@ -10,7 +10,7 @@
 [![GitHub](https://badgen.net/badge/emmercm/metalsmith-htaccess/purple?icon=github)](https://github.com/emmercm/metalsmith-htaccess)
 [![License](https://badgen.net/github/license/emmercm/metalsmith-htaccess?color=grey)](https://github.com/emmercm/metalsmith-htaccess/blob/master/LICENSE)
 
-A Metalsmith plugin to create an htaccess configuration file.
+A Metalsmith plugin to create an Apache HTTP Server `.htaccess` configuration file.
 
 ## Installation
 
